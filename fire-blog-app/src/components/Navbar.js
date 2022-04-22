@@ -9,9 +9,14 @@ import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import cwLogo from '../assets/cw.jpeg'
-
+import { AuthContext } from '../contexts/AuthContext';
+import {useContext} from "react"
+import { useNavigate } from 'react-router-dom';
 
 export default function PrimarySearchAppBar() {
+
+  const navigate = useNavigate();
+  const {currentUser, logOut} = useContext(AuthContext);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -27,9 +32,32 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
+  const handleLogin = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
+    navigate("/login")
+
+  };
+  const handleRegister = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    navigate("/register")
+  };
+  const handleProfile = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    navigate("/profile")
+  };
+  const handleNew = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    navigate("/newblog")
+  };
+  const handleLogout = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    navigate("/")
+    logOut();
   };
 
   const handleMobileMenuOpen = (event) => {
@@ -51,13 +79,13 @@ export default function PrimarySearchAppBar() {
         horizontal: 'right',
       }}
       open={isMenuOpen}
-      onClose={handleMenuClose}
+      onClose={handleLogin}
     >
-      <MenuItem onClick={handleMenuClose}>Login?</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Register?</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>New</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+      {!currentUser && ( <MenuItem onClick={handleLogin}>Login</MenuItem>) }
+      {!currentUser && ( <MenuItem onClick={handleRegister}>Register</MenuItem>) }
+      {currentUser && ( <MenuItem onClick={handleProfile}>Profile</MenuItem>) }
+      {currentUser && ( <MenuItem onClick={handleNew}>New</MenuItem>) }
+      {currentUser && ( <MenuItem onClick={handleLogout}>Logout</MenuItem>) }
     </Menu>
   );
 
@@ -79,38 +107,11 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem  >
-      <IconButton >
-          <AccountCircle />
-        </IconButton>
-        <p>Login?</p>
-      </MenuItem>
-      <MenuItem>
-      <IconButton >
-          <AccountCircle />
-        </IconButton>
-        <p>Register?</p>
-      </MenuItem>
-      <MenuItem>
-      <IconButton >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-
-      <MenuItem>
-      <IconButton >
-          <AccountCircle />
-        </IconButton>
-        <p>New</p>
-      </MenuItem>
-      
-      <MenuItem >
-        <IconButton >
-          <AccountCircle />
-        </IconButton>
-        <p>Logout</p>
-      </MenuItem>
+       {!currentUser && ( <MenuItem onClick={handleLogin}>Login</MenuItem>) }
+      {!currentUser && ( <MenuItem onClick={handleRegister}>Register</MenuItem>) }
+      {currentUser && ( <MenuItem onClick={handleProfile}>Profile</MenuItem>) }
+      {currentUser && ( <MenuItem onClick={handleNew}>New</MenuItem>) }
+      {currentUser && ( <MenuItem onClick={handleLogout}>Logout</MenuItem>) }
     </Menu>
   );
 

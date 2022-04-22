@@ -1,47 +1,82 @@
-import React from 'react';
+import React, { useState, useContext } from "react";
 import {
   Checkbox,
   Grid,
   TextField,
   FormControlLabel,
   Paper,
-  Button
-} from '@material-ui/core';
-import blok from '../assets/blok.png'
+  Button,
+} from "@material-ui/core";
+import blok from "../assets/blok.png";
+import { AuthContext } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 
 const Register = () => {
 
+  const navigate = useNavigate();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const {register, loginWithGoogle} = useContext(AuthContext)
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    register(email, password, navigate);
 
+  };
+
+  const handleGoogle = (e) => {
+    e.preventDefault();
+    loginWithGoogle(navigate)
+  }
 
   return (
     <div style={{ padding: 30 }}>
       <Paper>
-        <div style={{display:'flex', justifyContent: 'center'}} >
-          <img src={blok} alt="" style={{borderRadius:'%50', border:'1px solid aqua', backgroundColor:'aqua'}} />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img
+            src={blok}
+            alt=""
+            style={{
+              borderRadius: "%50",
+              border: "1px solid aqua",
+              backgroundColor: "aqua",
+            }}
+          />
         </div>
         <Grid
           container
           spacing={3}
-          direction={'column'}
-          justify={'center'}
-          alignItems={'center'}
+          direction={"column"}
+          justify={"center"}
+          alignItems={"center"}
         >
           <h2>--REGISTER--</h2>
           <Grid item xs={12}>
-            <TextField label="Email"></TextField>
+            <TextField
+              label="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            ></TextField>
           </Grid>
           <Grid item xs={12}>
-            <TextField label="Password" type={'password'}></TextField>
+            <TextField
+              label="Password"
+              type={"password"}
+              onChange={(e) => setPassword(e.target.value)}
+            ></TextField>
+          </Grid>
+          <Grid item xs={12}></Grid>
+          <Grid item xs={12}>
+            <Button fullWidth onClick={handleSubmit}>
+              {" "}
+              Register{" "}
+            </Button>
           </Grid>
           <Grid item xs={12}>
-
-          </Grid>
-          <Grid item xs={12}>
-            <Button fullWidth> Register </Button>
-          </Grid>
-          <Grid item xs={12}>
-            <Button fullWidth> Continue With Google </Button>
+            <Button fullWidth onClick={handleGoogle}>
+              {" "}
+              Continue With Google{" "}
+            </Button>
           </Grid>
         </Grid>
       </Paper>

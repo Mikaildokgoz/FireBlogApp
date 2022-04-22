@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Checkbox,
   Grid,
@@ -8,10 +8,25 @@ import {
   Button
 } from '@material-ui/core';
 import blok from '../assets/blok.png'
+import { AuthContext} from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
+ const navigate = useNavigate()
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const {login, loginWithGoogle} = useContext(AuthContext)
 
+  const handleLogin = () => {
+    login(email, password);
+    navigate("/")
+  }
 
+  const handleGoogle = () =>{
+    loginWithGoogle(navigate);
+;
+  }
 
 
   return (
@@ -29,19 +44,19 @@ const Login = () => {
         >
           <h2>--LOGIN--</h2>
           <Grid item xs={12}>
-            <TextField label="Email"></TextField>
+            <TextField label="Email" onChange={(e) => setEmail(e.target.value)} ></TextField>
           </Grid>
           <Grid item xs={12}>
-            <TextField label="Password" type={'password'}></TextField>
+            <TextField label="Password" type={'password'} onChange={(e) => setPassword(e.target.value)} ></TextField>
           </Grid>
           <Grid item xs={12}>
 
           </Grid>
           <Grid item xs={12}>
-            <Button fullWidth> Login </Button>
+            <Button fullWidth onClick={handleLogin} > Login </Button>
           </Grid>
           <Grid item xs={12}>
-            <Button fullWidth> Continue With Google </Button>
+            <Button fullWidth onClick={handleGoogle}  > Continue With Google </Button>
           </Grid>
         </Grid>
       </Paper>

@@ -1,4 +1,4 @@
-import {auth} from "../helpers/firebase";
+import { auth } from "../helpers/firebase";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -8,18 +8,21 @@ import {
   signOut,
 } from "firebase/auth";
 import { useState, useEffect, createContext } from "react";
-
+// import {useNavigate} from "react-router-dom"
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState(true);
 
-  const register = (email, password) => {
+  const register = (email, password, navigate) => {
     return createUserWithEmailAndPassword(auth, email, password);
+    // navigate("/")
   };
 
   const login = (email, password) => {
+    
     return signInWithEmailAndPassword(auth, email, password);
+
   };
 
   const logOut = () => {
@@ -65,5 +68,3 @@ export const AuthContextProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
-
