@@ -38,7 +38,7 @@ export const BlogContextProvider = ({ children }) => {
 
   const EditBlog = (posts) => {
     const updates = {};
-    updates["blogapp/" + posts.id] = info;
+    updates["blogapp/" + posts.id] = posts;
     return update(ref(db), updates)
   }
 
