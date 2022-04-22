@@ -1,37 +1,15 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import cwLogo from '../assets/cw.jpeg'
 
-
-
-
-
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//   color: 'inherit',
-//   '& .MuiInputBase-input': {
-//     padding: theme.spacing(1, 1, 1, 0),
-//     // vertical padding + font size from searchIcon
-//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//     transition: theme.transitions.create('width'),
-//     width: '100%',
-//     [theme.breakpoints.up('md')]: {
-//       width: '20ch',
-//     },
-//   },
-// }));
 
 export default function PrimarySearchAppBar() {
 
@@ -60,7 +38,7 @@ export default function PrimarySearchAppBar() {
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
-    <Menu
+    <Menu sx={{ mt: '45px' }}
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: 'top',
@@ -75,15 +53,18 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Login</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Register</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Login?</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Register?</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>New</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
+
   const renderMobileMenu = (
-    <Menu
+    <Menu sx={{ mt: '40px' }}
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
         vertical: 'top',
@@ -98,11 +79,23 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem  >
+      <IconButton >
+          <AccountCircle />
+        </IconButton>
+        <p>Login?</p>
+      </MenuItem>
       <MenuItem>
       <IconButton >
           <AccountCircle />
         </IconButton>
-        <p>Login</p>
+        <p>Register?</p>
+      </MenuItem>
+      <MenuItem>
+      <IconButton >
+          <AccountCircle />
+        </IconButton>
+        <p>Profile</p>
       </MenuItem>
 
       <MenuItem>
@@ -116,7 +109,7 @@ export default function PrimarySearchAppBar() {
         <IconButton >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <p>Logout</p>
       </MenuItem>
     </Menu>
   );
@@ -124,7 +117,7 @@ export default function PrimarySearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar style={{display:'flex', justifyContent:'space-between' }}>
 
           <IconButton
             size="large"
@@ -133,7 +126,7 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            MyLOGO
+            <img src={cwLogo} alt="" style={{width:'2rem'}} />
           </IconButton>
           
           <Typography
@@ -145,9 +138,7 @@ export default function PrimarySearchAppBar() {
             React Blog App
           </Typography>
 
-          <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
- 
             <IconButton
               size="large"
               edge="end"
@@ -158,9 +149,9 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <AccountCircle />
-            </IconButton>
-            
+            </IconButton> 
           </Box>
+
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -170,9 +161,10 @@ export default function PrimarySearchAppBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <AccountCircle />
             </IconButton>
           </Box>
+
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
