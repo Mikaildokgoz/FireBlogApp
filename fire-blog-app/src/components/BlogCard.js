@@ -7,46 +7,55 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-// import { BlogContext } from "../contexts/BlogContext";
-// import { AuthContext } from "../contexts/AuthContext";
+import moment from 'moment';
+import {useNavigate} from 'react-router-dom'
+
 
 export default function BlogCard({item}) {
-  // const { useFetch, item } = React.useContext(itemContext);
-  // const { currentUser } = React.useContext(AuthContext);
-  // useFetch();
-  console.log("araba");
+  const navigate = useNavigate()
+
+  console.log("BlogCard.js running");
+
+  const handleClick = () => {
+    navigate('/details')
+  }
+
   return (
-    <Card sx={{ maxWidth: 345 }} >
-      <CardMedia
+    <Card sx={{ maxWidth: 345 }}  >
+      <CardMedia onClick={handleClick}
       style={{height:"17rem", width:"17rem"}}
         component="img"
       
         image={item.url}
         alt="Paella dish"
       />
-      <CardContent>
+
+      <CardContent onClick={handleClick} >
        
         <Typography variant="body2" color="text.secondary">
           {item.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        {item?.addDate}
+        {moment(item?.addDate).format("MM/DD/YYYY")}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {item.content}
+        {item?.content.substring(0,200)}
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
           {item.user}
         </Typography>
       </CardContent>
+
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
+
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
+
       </CardActions>
     </Card>
   );
