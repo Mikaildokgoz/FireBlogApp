@@ -1,28 +1,31 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import cwLogo from '../assets/cw.jpeg'
-import { AuthContext } from '../contexts/AuthContext';
-import {useContext} from "react"
-import { useNavigate } from 'react-router-dom';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import MoreIcon from "@mui/icons-material/MoreVert";
+import cwLogo from "../assets/cw.jpeg";
+import { AuthContext } from "../contexts/AuthContext";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function PrimarySearchAppBar() {
 
   const navigate = useNavigate();
-  const {currentUser, logOut} = useContext(AuthContext);
+  const { currentUser, logOut } = useContext(AuthContext);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const handleClick = () => {
+    navigate("/")
+  }
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,28 +38,27 @@ export default function PrimarySearchAppBar() {
   const handleLogin = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
-    navigate("/login")
-
+    navigate("/login");
   };
   const handleRegister = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
-    navigate("/register")
+    navigate("/register");
   };
   const handleProfile = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
-    navigate("/profile")
+    navigate("/profile");
   };
   const handleNew = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
-    navigate("/newblog")
+    navigate("/newblog");
   };
   const handleLogout = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
-    navigate("/")
+    navigate("/");
     logOut();
   };
 
@@ -64,82 +66,86 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
-    <Menu sx={{ mt: '45px' }}
+    <Menu
+      sx={{ mt: "45px" }}
       anchorEl={anchorEl}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={isMenuOpen}
       onClose={handleLogin}
     >
-      {!currentUser && ( <MenuItem onClick={handleLogin}>Login</MenuItem>) }
-      {!currentUser && ( <MenuItem onClick={handleRegister}>Register</MenuItem>) }
-      {currentUser && ( <MenuItem onClick={handleProfile}>Profile</MenuItem>) }
-      {currentUser && ( <MenuItem onClick={handleNew}>New</MenuItem>) }
-      {currentUser && ( <MenuItem onClick={handleLogout}>Logout</MenuItem>) }
+      {!currentUser && <MenuItem onClick={handleLogin}>Login</MenuItem>}
+      {!currentUser && <MenuItem onClick={handleRegister}>Register</MenuItem>}
+      {currentUser && <MenuItem onClick={handleProfile}>Profile</MenuItem>}
+      {currentUser && <MenuItem onClick={handleNew}>New</MenuItem>}
+      {currentUser && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
 
   const renderMobileMenu = (
-    <Menu sx={{ mt: '40px' }}
+    <Menu
+      sx={{ mt: "40px" }}
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-       {!currentUser && ( <MenuItem onClick={handleLogin}>Login</MenuItem>) }
-      {!currentUser && ( <MenuItem onClick={handleRegister}>Register</MenuItem>) }
-      {currentUser && ( <MenuItem onClick={handleProfile}>Profile</MenuItem>) }
-      {currentUser && ( <MenuItem onClick={handleNew}>New</MenuItem>) }
-      {currentUser && ( <MenuItem onClick={handleLogout}>Logout</MenuItem>) }
+      {!currentUser && <MenuItem onClick={handleLogin}>Login</MenuItem>}
+      {!currentUser && <MenuItem onClick={handleRegister}>Register</MenuItem>}
+      {currentUser && <MenuItem onClick={handleProfile}>Profile</MenuItem>}
+      {currentUser && <MenuItem onClick={handleNew}>New</MenuItem>}
+      {currentUser && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
     </Menu>
   );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar style={{display:'flex', justifyContent:'space-between' }}>
-
+        <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick = {handleClick}
           >
-            <img src={cwLogo} alt="" style={{width:'2rem'}} />
+            <img src={cwLogo} alt="" style={{ width: "2rem" }} />
+           
           </IconButton>
-          
+
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: "none", sm: "block" } }}
+            onClick = {handleClick}
           >
             React Blog App
           </Typography>
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
               edge="end"
@@ -150,10 +156,10 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <AccountCircle />
-            </IconButton> 
+            </IconButton>
           </Box>
 
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -165,7 +171,6 @@ export default function PrimarySearchAppBar() {
               <AccountCircle />
             </IconButton>
           </Box>
-
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

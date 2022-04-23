@@ -6,8 +6,8 @@ import { BlogContext } from "../contexts/BlogContext";
 const Dashboard = () => {
   const { useFetch, blog} = useContext(BlogContext);
   // const{ blog } = useFetch();
-  useFetch(blog);
-  console.log(blog);
+  useFetch();
+  // console.log(blog);
   return (
     <Container>
       <Typography

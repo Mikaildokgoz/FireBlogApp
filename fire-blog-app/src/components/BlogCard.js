@@ -16,8 +16,10 @@ export default function BlogCard({item}) {
 
   console.log("BlogCard.js running");
 
-  const handleClick = () => {
-    navigate('/details')
+  const handleClick = (e) => {
+    // const id = e.target.value
+    // console.log(id);
+    navigate("/details", { state: { item } })
   }
 
   return (
