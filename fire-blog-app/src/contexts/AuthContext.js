@@ -19,9 +19,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const login = (email, password) => {
-    
     return signInWithEmailAndPassword(auth, email, password);
-
   };
 
   const logOut = () => {
