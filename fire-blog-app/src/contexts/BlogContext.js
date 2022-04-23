@@ -21,9 +21,10 @@ export const BlogContextProvider = ({ children }) => {
   const AddBlog = (posts) => {
     const blogRef = ref(db, "blogapp");
     const newBlogrRef = push(blogRef);
+
     set(newBlogrRef, {
       title: posts.title,
-      imgUrl: posts.imgUrl,
+      url: posts.url,
       content: posts.content,
       user: currentUser.email,
       addDate: Date.now(),
