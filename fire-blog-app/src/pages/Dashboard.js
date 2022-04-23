@@ -4,8 +4,9 @@ import BlogCard from "../components/BlogCard";
 import { BlogContext } from "../contexts/BlogContext";
 
 const Dashboard = () => {
-  const { useFetch, blog } = useContext(BlogContext);
-  useFetch();
+  const { useFetch, blog} = useContext(BlogContext);
+  // const{ blog } = useFetch();
+  useFetch(blog);
   console.log(blog);
   return (
     <Container>
@@ -24,9 +25,12 @@ const Dashboard = () => {
         justifyContent="space-evenly"
         flexWrap="wrap"
       >
-        {blog?.map((item, index) => return ({
-          <BlogCard item={item} key={index} />;
-        }))}
+        
+        {blog.map((item) => (
+          <BlogCard item={item} key={item.id} />
+        ))}
+
+
       </Box>
     </Container>
   );

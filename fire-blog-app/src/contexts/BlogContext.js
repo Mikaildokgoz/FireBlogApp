@@ -16,7 +16,7 @@ export const BlogContext = createContext();
 
 export const BlogContextProvider = ({ children }) => {
   const { currentUser } = useContext(AuthContext);
-  const [blog, setBlog] = useState();
+  const [blog, setBlog] = useState([]);
 
   const AddBlog = (posts) => {
     const blogRef = ref(db, "blogapp");

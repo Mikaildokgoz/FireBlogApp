@@ -7,40 +7,37 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import { BlogContext } from "../contexts/BlogContext";
+// import { BlogContext } from "../contexts/BlogContext";
 // import { AuthContext } from "../contexts/AuthContext";
 
 export default function BlogCard({item}) {
   // const { useFetch, item } = React.useContext(itemContext);
   // const { currentUser } = React.useContext(AuthContext);
   // useFetch();
-  console.log(item);
+  console.log("araba");
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} >
       <CardMedia
+      style={{height:"17rem", width:"17rem"}}
         component="img"
-        height="194"
-        image={item?.url}
+      
+        image={item.url}
         alt="Paella dish"
       />
       <CardContent>
+       
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {item.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {item?.title}
+        {item?.addDate}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {item?.addDate}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {item?.content}
+          {item.content}
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
-          {item?.user}
+          {item.user}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
