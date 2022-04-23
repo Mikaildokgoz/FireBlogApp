@@ -14,9 +14,8 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(true);
 
-  const register = (email, password, navigate) => {
+  const register = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
-    // navigate("/")
   };
 
   const login = (email, password) => {

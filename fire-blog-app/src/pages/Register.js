@@ -1,13 +1,12 @@
 import React, { useState, useContext } from "react";
 import {
-  Checkbox,
   Grid,
   TextField,
-  FormControlLabel,
   Paper,
   Button,
 } from "@material-ui/core";
 import blok from "../assets/blok.png";
+import google from "../assets/google.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -75,7 +74,7 @@ const Register = () => {
           <Grid item xs={12}>
             <Button fullWidth onClick={handleGoogle}>
               {" "}
-              Continue With Google{" "}
+              Continue With <span><img style={{width:'3rem'}} src={google} alt="" /></span>
             </Button>
           </Grid>
         </Grid>
