@@ -1,9 +1,16 @@
-import React from 'react'
+import {toast} from "react-toastify";
 
-const toastNotify = () => {
-  return (
-    <div>toastNotify</div>
-  )
-}
 
-export default toastNotify
+
+export const successToastNotify = (msg) => {
+  
+  toast.success('msg', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    }) 
+  }

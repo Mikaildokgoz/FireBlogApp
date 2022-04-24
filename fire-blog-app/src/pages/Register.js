@@ -9,6 +9,7 @@ import blok from "../assets/blok.png";
 import google from "../assets/google.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import {successToastNotify} from "../helpers/toastNotify"
 
 
 const Register = () => {
@@ -17,26 +18,19 @@ const Register = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const {register, loginWithGoogle, currentUser} = useContext(AuthContext)
+  const {register, loginWithGoogle} = useContext(AuthContext)
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   register(email, password, navigate);
-    
-  //   currentUser && (navigate("/"))
-
-
-  // };
 
   const handleSubmit = () => {
     register(email, password)
-      .then(() => {
-        navigate("/");
-        // toastSuccessNotify("Registered in successfully!");
-      })
-      .catch((error) => {
-        // toastErrorNotify(error);
-      });
+    .then(()=>{
+      navigate("/")
+      successToastNotify("Registered in successfully!")
+    })
+    .catch((error)=> {
+      alert(error.message)
+    })   
+     
     // resetForm();
   };
 
