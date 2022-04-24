@@ -18,15 +18,15 @@ const Login = () => {
   const { login, loginWithGoogle } = useContext(AuthContext);
 
   const handleLogin = () => {
-    login(email, password)
-      .then(() => {
-        navigate("/");
-        // toastSuccessNotify("Logged in successfully!");
-      })
-      .catch((error) => {
-        // toastErrorNotify(error);
-      });
-    // resetForm();
+    login(email, password,navigate)
+    //   .then(() => {
+    //     navigate("/");
+    //     // toastSuccessNotify("Logged in successfully!");
+    //   })
+    //   .catch((error) => {
+    //     // toastErrorNotify(error);
+    //   });
+    // // resetForm();
   };
 
   const handleGoogle = () => {

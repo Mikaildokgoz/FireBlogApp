@@ -13,15 +13,31 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
+  // useFetch();
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const {register, loginWithGoogle} = useContext(AuthContext)
+  const {register, loginWithGoogle, currentUser} = useContext(AuthContext)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    register(email, password, navigate);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   register(email, password, navigate);
+    
+  //   currentUser && (navigate("/"))
 
+
+  // };
+
+  const handleSubmit = () => {
+    register(email, password)
+      .then(() => {
+        navigate("/");
+        // toastSuccessNotify("Registered in successfully!");
+      })
+      .catch((error) => {
+        // toastErrorNotify(error);
+      });
+    // resetForm();
   };
 
   const handleGoogle = (e) => {
