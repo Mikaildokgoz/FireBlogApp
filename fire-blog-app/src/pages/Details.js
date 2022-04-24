@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { BlogContext } from "../contexts/BlogContext";
-// import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
@@ -18,24 +17,25 @@ import { AuthContext } from "../contexts/AuthContext";
 const Details = () => {
   const { EditBlog, DeleteBlog } = useContext(BlogContext);
   const { currentUser } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const location = useLocation();
-  console.log(location);
-  console.log(location.state);
-  console.log(location.state.item);
-  console.log(location.state.item.id);
+ /*  console.log('location->>',location);
+  console.log('location.state->>',location.state);
+  console.log('location.state.item->>',location.state.item);
+  console.log('location.state.item.id->>',location.state.item.id);
+  console.log('currentUser.email->>',currentUser.email); */
 
   const item = location.state.item;
-  console.log(item);
 
-  const handleEdit = (id) => {
-    EditBlog(id);
+  const handleNavigateUpdate = (id) => {
+    // navigate('/updateblog')
+    navigate("/updateblog", { state: { item } })
   };
 
   const handleDelete = (id) => {
     DeleteBlog(id);
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -79,7 +79,7 @@ const Details = () => {
         <Button onClick={() => handleDelete(item.id)}>Delete</Button>
       ) : null}
       {currentUser?.email === item?.user ? (
-        <Button onClick={handleEdit}>Edit</Button>
+        <Button onClick={() => handleNavigateUpdate(item.id)}>Edit</Button>
       ) : null}
     </Container>
   );
