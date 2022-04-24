@@ -13,7 +13,7 @@ import { useState, useEffect, createContext } from "react";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(true);
+  const [currentUser, setCurrentUser] = useState();
 
   const register = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);

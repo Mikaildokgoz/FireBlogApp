@@ -16,9 +16,6 @@ export default function NewBlog() {
   const location = useLocation();
   const item = location.state.item
 
-  const [title, setTitle] = useState();
-  const [url, setUrl] = useState();
-  const [content, setContent] = useState();
   const [posts, setPosts] = useState({
     id: item.id,
     title: item.title,
@@ -37,7 +34,7 @@ export default function NewBlog() {
 
   const handleSubmitUpdate = (e) => {
     e.preventDefault(e);
-    setPosts({user: currentUser.email})
+    // setPosts({user: currentUser.email})
     EditBlog(posts);
     navigate("/");
   };
