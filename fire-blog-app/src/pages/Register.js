@@ -9,7 +9,7 @@ import blok from "../assets/blok.png";
 import google from "../assets/google.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import {successToastNotify} from "../helpers/toastNotify"
+import {errorToastNotify, successToastNotify} from "../helpers/toastNotify"
 
 
 const Register = () => {
@@ -27,10 +27,8 @@ const Register = () => {
       successToastNotify("Registered in successfully!")
     })
     .catch((error)=> {
-      alert(error.message)
+      errorToastNotify(error.message)
     })   
-     
-    // resetForm();
   };
 
   const handleGoogle = (e) => {

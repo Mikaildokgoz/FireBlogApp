@@ -10,6 +10,7 @@ import {
 import blok from "../assets/blok.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { errorToastNotify, successToastNotify } from "../helpers/toastNotify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,15 +19,14 @@ const Login = () => {
   const { login, loginWithGoogle } = useContext(AuthContext);
 
   const handleLogin = () => {
-    login(email, password,navigate)
-    //   .then(() => {
-    //     navigate("/");
-    //     // toastSuccessNotify("Logged in successfully!");
-    //   })
-    //   .catch((error) => {
-    //     // toastErrorNotify(error);
-    //   });
-    // // resetForm();
+    login(email, password, navigate)
+      .then(() => {
+        navigate("/");
+        successToastNotify("Logged in successfully!");
+      })
+      .catch((error) => {
+        errorToastNotify(error.message);
+      });
   };
 
   const handleGoogle = () => {

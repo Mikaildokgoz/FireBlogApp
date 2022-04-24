@@ -1,7 +1,5 @@
 import {toast} from "react-toastify";
 
-
-
 export const successToastNotify = (msg) => {
   
   toast.success(msg, {
@@ -14,3 +12,28 @@ export const successToastNotify = (msg) => {
     progress: undefined,
     }) 
   }
+
+export const warningToastNotify = (msg) => {
+  toast.warn(msg, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+  }
+
+
+  export const errorToastNotify = (msg) => {
+    toast.error(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+    }
