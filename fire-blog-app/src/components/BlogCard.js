@@ -1,10 +1,5 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import {Card,CardMedia, CardContent,CardActions ,IconButton ,Typography } from "@mui/material/";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import moment from 'moment';
@@ -12,13 +7,11 @@ import {useNavigate} from 'react-router-dom'
 
 
 export default function BlogCard({item}) {
-  const navigate = useNavigate()
 
+  const navigate = useNavigate()
   console.log("BlogCard.js running");
 
   const handleClick = (e) => {
-    // const id = e.target.value
-    // console.log(id);
     navigate("/details", { state: { item } })
   }
 
@@ -57,8 +50,8 @@ export default function BlogCard({item}) {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-
       </CardActions>
+
     </Card>
   );
 }

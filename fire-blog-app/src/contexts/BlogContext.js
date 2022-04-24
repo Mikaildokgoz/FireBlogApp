@@ -1,8 +1,6 @@
 import { db } from "../helpers/firebase";
-
 import { useState, useEffect, createContext, useContext } from "react";
 import {
-  getDatabase,
   ref,
   set,
   push,
@@ -59,6 +57,7 @@ export const BlogContextProvider = ({ children }) => {
     }, [])
     return {blog}
   }
+
   return (
     <BlogContext.Provider value={{blog, setBlog, AddBlog, DeleteBlog, EditBlog, useFetch}}>
       {children}
