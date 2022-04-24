@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { useState, useEffect, createContext } from "react";
 // import {useNavigate} from "react-router-dom"
+
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {

@@ -39,48 +39,7 @@ const Details = () => {
   };
 
   return (
-    <Container>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          style={{ height: "17rem", width: "17rem" }}
-          component="img"
-          image={item.url}
-          alt="Paella dish"
-        />
 
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            {item.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {moment(item?.addDate).format("MM/DD/YYYY")}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {item?.content.substring(0, 200)}
-          </Typography>
-
-          <Typography variant="body2" color="text.secondary">
-            {item.user}
-          </Typography>
-        </CardContent>
-
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-        </CardActions>
-      </Card>
-
-      {currentUser?.email === item?.user ? (
-        <Button onClick={() => handleDelete(item.id)}>Delete</Button>
-      ) : null}
-      {currentUser?.email === item?.user ? (
-        <Button onClick={() => handleNavigateUpdate(item.id)}>Edit</Button>
-      ) : null}
     </Container>
   );
 };
