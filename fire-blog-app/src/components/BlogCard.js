@@ -9,7 +9,7 @@ import {useNavigate} from 'react-router-dom'
 export default function BlogCard({item}) {
 
   const navigate = useNavigate()
-  console.log("BlogCard.js running");
+  // console.log("BlogCard.js running");
 
   const handleClick = (e) => {
     navigate("/details", { state: { item } })

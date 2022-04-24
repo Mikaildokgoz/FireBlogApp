@@ -20,16 +20,17 @@ const Details = () => {
   const navigate = useNavigate();
 
   const location = useLocation();
-  console.log('location->>',location);
+ /*  console.log('location->>',location);
   console.log('location.state->>',location.state);
   console.log('location.state.item->>',location.state.item);
   console.log('location.state.item.id->>',location.state.item.id);
-  console.log('currentUser.email->>',currentUser.email);
+  console.log('currentUser.email->>',currentUser.email); */
 
   const item = location.state.item;
 
-  const handleEdit = (id) => {
-    EditBlog(id);
+  const handleNavigateUpdate = (id) => {
+    // navigate('/updateblog')
+    navigate("/updateblog", { state: { item } })
   };
 
   const handleDelete = (id) => {
@@ -78,7 +79,7 @@ const Details = () => {
         <Button onClick={() => handleDelete(item.id)}>Delete</Button>
       ) : null}
       {currentUser?.email === item?.user ? (
-        <Button onClick={handleEdit}>Edit</Button>
+        <Button onClick={() => handleNavigateUpdate(item.id)}>Edit</Button>
       ) : null}
     </Container>
   );
