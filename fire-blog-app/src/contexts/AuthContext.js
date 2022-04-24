@@ -8,7 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { useState, useEffect, createContext } from "react";
-// import {useNavigate} from "react-router-dom"
+
 
 export const AuthContext = createContext();
 
@@ -19,8 +19,16 @@ export const AuthContextProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const login = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+  const login = async (email, password,navigate) => {
+    return signInWithEmailAndPassword(auth, email, password)
+    .then(()=>{
+      navigate("/")
+      
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+
   };
 
   const logOut = () => {
@@ -37,11 +45,13 @@ export const AuthContextProvider = ({ children }) => {
     });
   };
 
-  const loginWithGoogle = (navigate) => {
+  const loginWithGoogle = async (navigate) => {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: "select_account" }); /* ? */
     signInWithPopup(auth, provider)
-      .then((result) => {})
+      .then(() => {
+        navigate("/")
+      })
       .catch((error) => {
         console.log(error);
       });
