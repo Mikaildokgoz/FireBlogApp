@@ -89,34 +89,40 @@ export default function NewBlog() {
   // );
 
   return (
-    <Container  style={{
-      padding: 30,
-      backgroundImage: "url(https://picsum.photos/1600/900)",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      height: "calc(100vh - 64px)",
-      display:"flex",
-      justifyContent:"center",
-    }} >
-      <Box className="login-box" style={{
-      width: "60%",
-      borderRadius: "10px",
-      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-      backgroundColor: "transparent"
-    }}>
-        <Avatar
-          className="login-avatar"
-          alt="avatar_img"
-          src={blogPng}
-          sx={{ width: 156, height: 156 }}
-        />
-        <Typography
-          variant="h4"
-          component="h1"
-          sx={{ m: 4, fontFamily: "Girassol", color: "#046582" }}
-        >
-          ── NEW BLOG ──
-        </Typography>
+    <div
+      style={{
+        padding: 30,
+        backgroundImage: "url(https://picsum.photos/1600/900)",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        height: "calc(100vh - 64px)",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Box
+        style={{
+          width: "50%",
+          borderRadius: "10px",
+          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+          backgroundColor: "transparent",
+        }}
+      >
+        <div style={{ display: "flex", justifyContent: "center", flexDirection:'column', alignItems:'center' }}>
+          <Avatar
+            alt="avatar_img"
+            src={blogPng}
+            sx={{ width: 156, height: 156 }}
+            style={{ display: "flex", justifyContent: "center" }}
+          />
+          <Typography
+            variant="h4"
+            component="h1"
+            sx={{ m: 4, fontFamily: "Girassol", color: "#046582" }}
+          >
+            ── NEW BLOG ──
+          </Typography>
+        </div>
 
         <form onSubmit={handleSubmit}>
           <Grid container spacing={4}>
@@ -133,6 +139,7 @@ export default function NewBlog() {
                 value={posts.title}
                 onChange={handleChange}
                 fullWidth
+                style={{backgroundColor:'#FFF',borderRadius:'5px'}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -147,6 +154,7 @@ export default function NewBlog() {
                 value={posts.url}
                 onChange={handleChange}
                 fullWidth
+                style={{backgroundColor:'#FFF',borderRadius:'5px'}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -164,6 +172,7 @@ export default function NewBlog() {
                 value={posts.content}
                 onChange={handleChange}
                 fullWidth
+                style={{backgroundColor:'#FFF',borderRadius:'5px'}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -180,6 +189,6 @@ export default function NewBlog() {
           </Grid>
         </form>
       </Box>
-    </Container>
+    </div>
   );
 }

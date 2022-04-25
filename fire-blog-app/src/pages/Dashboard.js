@@ -20,6 +20,7 @@ const Dashboard = () => {
               fontFamily: "Girassol",
               textAlign: "center",
               color: "#046582",
+              
             }}
           >
             ──── Dashboard ────
@@ -37,7 +38,7 @@ const Dashboard = () => {
           </Box>
         </Container>
       ) : (
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center", marginTop:'150px' }}>
         <img src={loadingImg} alt="" />
       </div>
       )}
