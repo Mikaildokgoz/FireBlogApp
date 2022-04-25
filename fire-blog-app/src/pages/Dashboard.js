@@ -20,24 +20,22 @@ const Dashboard = () => {
               fontFamily: "Girassol",
               textAlign: "center",
               color: "#046582",
+              
             }}
           >
             ──── Dashboard ────
           </Typography>
           <Box
-            xs={{ d: "flex" }}
             display="flex"
-            alignItems="center"
-            justifyContent="space-evenly"
             flexWrap="wrap"
           >
-            {blog?.map((item) => (
+            {blog?.map((item) => ( 
               <BlogCard item={item} key={item.id} />
             ))}
           </Box>
         </Container>
       ) : (
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center", marginTop:'150px' }}>
         <img src={loadingImg} alt="" />
       </div>
       )}

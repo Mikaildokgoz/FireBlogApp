@@ -73,15 +73,15 @@ const Register = () => {
             justify={"center"}
             alignItems={"center"}
           >
-            <h2 style={{ fontFamily: "Girassol" }}>──REGISTER──</h2>
+            <h2 style={{ fontFamily: "Girassol",marginTop:'10px' }}>──REGISTER──</h2>
             <Grid item xs={12}>
-              <TextField
+              <TextField style={{backgroundColor:'#FFF', borderRadius:'8px'}}
                 label="Email"
                 onChange={(e) => setEmail(e.target.value)}
               ></TextField>
             </Grid>
             <Grid item xs={12}>
-              <TextField
+              <TextField style={{backgroundColor:'#FFF', borderRadius:'8px'}}
                 label="Password"
                 type={"password"}
                 onChange={(e) => setPassword(e.target.value)}

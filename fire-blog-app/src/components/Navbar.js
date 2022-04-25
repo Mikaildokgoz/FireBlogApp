@@ -141,6 +141,7 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
             onClick = {handleClick}
+            style={{cursor:'pointer'}}
           >
             React Blog App
           </Typography>
