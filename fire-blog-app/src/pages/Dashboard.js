@@ -26,13 +26,10 @@ const Dashboard = () => {
             ──── Dashboard ────
           </Typography>
           <Box
-            xs={{ d: "flex" }}
             display="flex"
-            alignItems="center"
-            justifyContent="space-evenly"
             flexWrap="wrap"
           >
-            {blog?.map((item) => (
+            {blog?.map((item) => ( 
               <BlogCard item={item} key={item.id} />
             ))}
           </Box>

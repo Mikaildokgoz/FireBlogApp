@@ -45,48 +45,6 @@ export default function NewBlog() {
     navigate("/");
   };
 
-  // return (
-  //   <form action="" style={{ margin: "auto" }}>
-  //     <div>
-  //       <img src={blok} alt="" />
-  //     </div>
-  //     <div style={{ margin: "10px" }}>
-  //       <TextField
-  //         onChange={handleChange}
-  //         name="title"
-  //         value={posts.title}
-  //         id="outlined-basic"
-  //         label="Title"
-  //         variant="outlined"
-  //       />
-  //     </div>
-  //     <div style={{ margin: "10px" }}>
-  //       <TextField
-  //         onChange={handleChange}
-  //         name="url"
-  //         value={posts.url}
-  //         id="outlined-basic"
-  //         label="İmgUrl"
-  //         variant="outlined"
-  //       />
-  //     </div>
-  //     <div style={{ margin: "10px" }}>
-  //       <TextField
-  //         onChange={handleChange}
-  //         name="content"
-  //         value={posts.content}
-  //         id="outlined-basic"
-  //         label="Context"
-  //         variant="outlined"
-  //       />
-  //     </div>
-  //     <div style={{ margin: "10px" }}>
-  //       <button onClick={handleSubmit} >
-  //         Add BLOG
-  //       </button>
-  //     </div>
-  //   </form>
-  // );
 
   return (
     <div

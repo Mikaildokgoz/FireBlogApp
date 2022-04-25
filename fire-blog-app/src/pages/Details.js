@@ -54,9 +54,9 @@ const Details = () => {
         <CardContent>
           <Typography>{item.title}</Typography>
           <Typography>{moment(item?.addDate).format("MM/DD/YYYY")}</Typography>
-          <Typography>{item?.content}</Typography>
+          <Typography style={{fontFamily:'Lato'}}>{item?.content}</Typography>
 
-          <Typography style={{backgroundColor:'#FFD93D'}} >{item.user}</Typography>
+          <Typography style={{color:'#FFD93D',fontFamily:'Times News Roman'}} >{item.user}</Typography>
         </CardContent>
 
         <CardActions disableSpacing>
