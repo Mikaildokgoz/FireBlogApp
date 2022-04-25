@@ -1,16 +1,25 @@
-import Box from "@mui/material/Box";  
-import TextField from "@mui/material/TextField";
-import { useContext, useState } from "react";
-import blok from "../assets/blok.png";
+import React, { useContext } from "react";
+import {
+  Container,
+  Box,
+  Avatar,
+  Typography,
+  Grid,
+  TextField,
+  Button,
+} from "@mui/material";
+// import TextField from "@mui/material/TextField";
+import { useState } from "react";
+import blogPng from "../assets/blok.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { useNavigate } from "react-router-dom";
+import { successToastNotify } from "../helpers/toastNotify";
 
 export default function NewBlog() {
   const { AddBlog } = useContext(BlogContext);
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
-
   const [title, setTitle] = useState();
   const [url, setUrl] = useState();
   const [content, setContent] = useState();
@@ -21,7 +30,7 @@ export default function NewBlog() {
     user: currentUser.email,
     addDate: new Date(),
     likeCount: 0,
-    commnetCount: 0
+    commnetCount: 0,
   });
 
   const handleChange = (e) => {
@@ -34,51 +43,143 @@ export default function NewBlog() {
     e.preventDefault(e);
     AddBlog(posts);
     navigate("/");
-    
   };
 
+  // return (
+  //   <form action="" style={{ margin: "auto" }}>
+  //     <div>
+  //       <img src={blok} alt="" />
+  //     </div>
+  //     <div style={{ margin: "10px" }}>
+  //       <TextField
+  //         onChange={handleChange}
+  //         name="title"
+  //         value={posts.title}
+  //         id="outlined-basic"
+  //         label="Title"
+  //         variant="outlined"
+  //       />
+  //     </div>
+  //     <div style={{ margin: "10px" }}>
+  //       <TextField
+  //         onChange={handleChange}
+  //         name="url"
+  //         value={posts.url}
+  //         id="outlined-basic"
+  //         label="İmgUrl"
+  //         variant="outlined"
+  //       />
+  //     </div>
+  //     <div style={{ margin: "10px" }}>
+  //       <TextField
+  //         onChange={handleChange}
+  //         name="content"
+  //         value={posts.content}
+  //         id="outlined-basic"
+  //         label="Context"
+  //         variant="outlined"
+  //       />
+  //     </div>
+  //     <div style={{ margin: "10px" }}>
+  //       <button onClick={handleSubmit} >
+  //         Add BLOG
+  //       </button>
+  //     </div>
+  //   </form>
+  // );
+
   return (
-    <form action="" style={{ margin: "auto" }}>
-      <div>
-        <img src={blok} alt="" />
-      </div>
-      <div style={{ margin: "10px" }}>
-        <TextField
-          onChange={handleChange}
-          name="title"
-          value={posts.title}
-          id="outlined-basic"
-          label="Title"
-          variant="outlined"
+    <Container  style={{
+      padding: 30,
+      backgroundImage: "url(https://picsum.photos/1600/900)",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      height: "calc(100vh - 64px)",
+      display:"flex",
+      justifyContent:"center",
+    }} >
+      <Box className="login-box" style={{
+      width: "60%",
+      borderRadius: "10px",
+      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+      backgroundColor: "transparent"
+    }}>
+        <Avatar
+          className="login-avatar"
+          alt="avatar_img"
+          src={blogPng}
+          sx={{ width: 156, height: 156 }}
         />
-      </div>
-      <div style={{ margin: "10px" }}>
-        <TextField
-          onChange={handleChange}
-          name="url"
-          value={posts.url}
-          id="outlined-basic"
-          label="İmgUrl"
-          variant="outlined"
-        />
-      </div>
-      <div style={{ margin: "10px" }}>
-        <TextField
-          onChange={handleChange}
-          name="content"
-          value={posts.content}
-          id="outlined-basic"
-          label="Context"
-          variant="outlined"
-        />
-      </div>
-      <div style={{ margin: "10px" }}>
-        <button onClick={handleSubmit} >
-          Add BLOG
-        </button>
-      </div>
-    </form>
+        <Typography
+          variant="h4"
+          component="h1"
+          sx={{ m: 4, fontFamily: "Girassol", color: "#046582" }}
+        >
+          ── NEW BLOG ──
+        </Typography>
+
+        <form onSubmit={handleSubmit}>
+          <Grid container spacing={4}>
+            <Grid item xs={12}>
+              <TextField
+                id="title"
+                label="Title"
+                name="title"
+                variant="outlined"
+                type="text"
+                autoFocus
+                autoComplete="title"
+                required
+                value={posts.title}
+                onChange={handleChange}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="url"
+                label="Image URL"
+                name="url"
+                variant="outlined"
+                type="text"
+                autoComplete="image-url"
+                required
+                value={posts.url}
+                onChange={handleChange}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="content"
+                label="Content"
+                name="content"
+                multiline
+                variant="outlined"
+                type="text"
+                rows={7}
+                autoFocus
+                autoComplete="content"
+                required
+                value={posts.content}
+                onChange={handleChange}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                style={{ backgroundColor: "#046582", fontWeight: 700 }}
+                variant="contained"
+                color="primary"
+                type="submit"
+                fullWidth
+              >
+                Add Blog
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Box>
+    </Container>
   );
 }
-
-

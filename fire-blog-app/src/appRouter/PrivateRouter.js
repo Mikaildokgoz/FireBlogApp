@@ -8,7 +8,6 @@ const PrivateRouter = () => {
 
   // return (currentUser ? (<Outlet />) : (<Navigate to="login" />));
   if (currentUser) {
-    errorToastNotify("Please asdasdasdas firstly!")
     return <Outlet />
   } else {
     errorToastNotify("Please login firstly!")

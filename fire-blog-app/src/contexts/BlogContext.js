@@ -9,12 +9,14 @@ import {
   update,
 } from "firebase/database";
 import { AuthContext } from "./AuthContext";
+import loading from "../assets/spinner.gif"
 
 export const BlogContext = createContext();
 
 export const BlogContextProvider = ({ children }) => {
   const { currentUser } = useContext(AuthContext);
   const [blog, setBlog] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const AddBlog = (posts) => {
     const blogRef = ref(db, "blogapp");
@@ -52,14 +54,18 @@ export const BlogContextProvider = ({ children }) => {
         for (let id in data) {
           blogappArray.push({ id, ...data[id] });
         }
-        setBlog(blogappArray);
+       if (blogappArray) {
+      setBlog(blogappArray)      
+       } else {
+        setLoading(true)
+       }
       });
     }, [])
     return {blog}
   }
 
   return (
-    <BlogContext.Provider value={{blog, setBlog, AddBlog, DeleteBlog, EditBlog, useFetch}}>
+    <BlogContext.Provider value={{blog, setBlog, AddBlog, DeleteBlog, EditBlog, useFetch, loading}}>
       {children}
     </BlogContext.Provider>
   )

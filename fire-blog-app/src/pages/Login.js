@@ -36,59 +36,6 @@ const Login = () => {
     loginWithGoogle(navigate);
   };
 
-  // return (
-  //   <div style={{ padding: 30 }}>
-  //     <Paper>
-  //       <div style={{ display: "flex", justifyContent: "center" }}>
-  //         <img
-  //           src={blok}
-  //           alt=""
-  //           style={{
-  //             borderRadius: "%50",
-  //             border: "1px solid aqua",
-  //             backgroundColor: "aqua",
-  //           }}
-  //         />
-  //       </div>
-  //       <Grid
-  //         container
-  //         spacing={3}
-  //         direction={"column"}
-  //         justify={"center"}
-  //         alignItems={"center"}
-  //       >
-  //         <h2>--LOGIN--</h2>
-  //         <Grid item xs={12}>
-  //           <TextField
-  //             label="Email"
-  //             onChange={(e) => setEmail(e.target.value)}
-  //           ></TextField>
-  //         </Grid>
-  //         <Grid item xs={12}>
-  //           <TextField
-  //             label="Password"
-  //             type={"password"}
-  //             onChange={(e) => setPassword(e.target.value)}
-  //           ></TextField>
-  //         </Grid>
-  //         <Grid item xs={12}></Grid>
-  //         <Grid item xs={12}>
-  //           <Button fullWidth onClick={handleLogin}>
-  //             {" "}
-  //             Login{" "}
-  //           </Button>
-  //         </Grid>
-  //         <Grid item xs={12}>
-  //           <Button fullWidth onClick={handleGoogle}>
-  //             {" "}
-  //             Continue With Google{" "}
-  //           </Button>
-  //         </Grid>
-  //       </Grid>
-  //     </Paper>
-  //   </div>
-  // );
-
   return(
   <div
   style={{

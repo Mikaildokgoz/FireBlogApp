@@ -33,10 +33,10 @@ const Details = () => {
     navigate("/updateblog", { state: { item } })
   };
 
-  const handleDelete = (id,navigate) => {
-    DeleteBlog(id,navigate);
-    // navigate("/");
-    // successToastNotify('blog suggesfully deleted')
+  const handleDelete = (id) => {
+    DeleteBlog(id);
+    navigate("/");
+    successToastNotify('blog suggesfully deleted')
   };
 
   return (
@@ -50,17 +50,17 @@ const Details = () => {
       />
 
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography >
           {item.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography >
           {moment(item?.addDate).format("MM/DD/YYYY")}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography >
           {item?.content.substring(0, 200)}
         </Typography>
 
-        <Typography variant="body2" color="text.secondary">
+        <Typography >
           {item.user}
         </Typography>
       </CardContent>
