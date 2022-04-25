@@ -11,7 +11,7 @@ export default function BlogCard({item}) {
   const navigate = useNavigate()
   // console.log("BlogCard.js running");
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     navigate("/details", { state: { item } })
   }
 

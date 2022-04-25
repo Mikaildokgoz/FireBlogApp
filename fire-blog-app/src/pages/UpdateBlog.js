@@ -5,6 +5,7 @@ import blok from "../assets/blok.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import { successToastNotify } from "../helpers/toastNotify";
 
 export default function NewBlog() {
   const { EditBlog } = useContext(BlogContext);
@@ -37,6 +38,7 @@ export default function NewBlog() {
     // setPosts({user: currentUser.email})
     EditBlog(posts);
     navigate("/");
+    successToastNotify('Blog updated successfully')
   };
 
   return (

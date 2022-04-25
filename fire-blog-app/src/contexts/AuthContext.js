@@ -8,30 +8,20 @@ import {
   signOut,
 } from "firebase/auth";
 import { useState, useEffect, createContext } from "react";
-import { successToastNotify } from "../helpers/toastNotify";
 
 
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
-  // const navigate = useNavigate()
 
   const register = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password)
   
   };
 
-  const login = (email, password,navigate) => {
+  const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
-    .then(()=>{
-      navigate("/")
-      
-    })
-    .catch((error)=>{
-      console.log(error);
-    })
-
   };
 
   const logOut = () => {

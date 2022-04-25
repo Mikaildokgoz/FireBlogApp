@@ -13,6 +13,7 @@ import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { Button, Container } from "@mui/material";
 import { AuthContext } from "../contexts/AuthContext";
+import { successToastNotify } from "../helpers/toastNotify";
 
 const Details = () => {
   const { DeleteBlog } = useContext(BlogContext);
@@ -29,13 +30,13 @@ const Details = () => {
   const item = location.state.item;
 
   const handleNavigateUpdate = (id) => {
-    // navigate('/updateblog')
     navigate("/updateblog", { state: { item } })
   };
 
-  const handleDelete = (id) => {
-    DeleteBlog(id);
-    navigate("/");
+  const handleDelete = (id,navigate) => {
+    DeleteBlog(id,navigate);
+    // navigate("/");
+    // successToastNotify('blog suggesfully deleted')
   };
 
   return (
