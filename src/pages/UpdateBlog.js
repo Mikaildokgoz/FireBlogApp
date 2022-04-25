@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";  
 import TextField from "@mui/material/TextField";
 import { useContext, useState } from "react";
-import blok from "../assets/blok.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { useLocation, useNavigate } from "react-router-dom";
