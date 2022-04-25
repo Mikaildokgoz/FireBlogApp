@@ -10,11 +10,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      {!loading ? (
-         <div style={{ display: "flex", justifyContent: "center" }}>
-         <img src={loadingImg} alt="" />
-       </div>
-      ) : (
+      {loading ? (
        <Container>
           <Typography
             gutterBottom
@@ -40,6 +36,10 @@ const Dashboard = () => {
             ))}
           </Box>
         </Container>
+      ) : (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+        <img src={loadingImg} alt="" />
+      </div>
       )}
     </div>
   );

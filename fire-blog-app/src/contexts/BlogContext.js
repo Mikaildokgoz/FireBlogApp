@@ -44,7 +44,7 @@ export const BlogContextProvider = ({ children }) => {
   }
 
   const useFetch = () => {
-    setLoading(true) 
+    // setLoading(true) 
 
     useEffect(() => {
       const blogRef = ref(db, "blogapp");
@@ -57,7 +57,7 @@ export const BlogContextProvider = ({ children }) => {
           blogappArray.push({ id, ...data[id] });
         }
         setBlog(blogappArray)  
-        setLoading(false) 
+        setLoading(true) 
       });
     }, [])
     return {blog, loading}
