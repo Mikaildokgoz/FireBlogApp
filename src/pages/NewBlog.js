@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import {
-  Container,
+  
   Box,
   Avatar,
   Typography,
@@ -14,15 +14,12 @@ import blogPng from "../assets/blok.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { useNavigate } from "react-router-dom";
-import { successToastNotify } from "../helpers/toastNotify";
 
 export default function NewBlog() {
   const { AddBlog } = useContext(BlogContext);
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [title, setTitle] = useState();
-  const [url, setUrl] = useState();
-  const [content, setContent] = useState();
+  
   const [posts, setPosts] = useState({
     title: "",
     url: "",

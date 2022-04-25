@@ -9,7 +9,6 @@ import {
   update,
 } from "firebase/database";
 import { AuthContext } from "./AuthContext";
-import loading from "../assets/spinner.gif"
 
 export const BlogContext = createContext();
 

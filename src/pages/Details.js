@@ -40,7 +40,7 @@ const Details = () => {
   };
 
   return (
-    <div style={{height:'100vh',width:'100vw', background: 'rgb(2,0,36)',
+    <div style={{height:'100vh',width:'100vw',
     background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(80,129,104,0.25253851540616246) 61%, rgba(0,212,255,1) 100%)', display:'flex',alignItems:'center',justifyContent:'center'}}>
     <Container style={{backgroundColor:'#FAFDD6'}}>
       <Card>

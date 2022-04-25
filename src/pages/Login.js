@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import {
-  Checkbox,
+  
   Grid,
   TextField,
   Container,
   Box,
-  FormControlLabel,
-  Paper,
+  
+  
   Button,
 } from "@material-ui/core";
 import blok from "../assets/blok.png";
