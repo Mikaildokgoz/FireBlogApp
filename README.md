@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Link
+
+Project page can be seen via this link --> https://fireblogapp-mikers.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
