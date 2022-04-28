@@ -15,7 +15,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 export default function BlogCard({ item }) {
   const navigate = useNavigate();
-  // console.log("BlogCard.js running");
+  console.log("BlogCard.js running");
 
   const handleClick = () => {
     navigate("/details", { state: { item } });
