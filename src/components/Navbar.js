@@ -85,7 +85,7 @@ export default function PrimarySearchAppBar() {
     >
       {!currentUser && <MenuItem onClick={handleLogin}>Login</MenuItem>}
       {!currentUser && <MenuItem onClick={handleRegister}>Register</MenuItem>}
-      {currentUser && <MenuItem onClick={handleProfile}>Profile</MenuItem>}
+      {currentUser && <MenuItem onClick={handleProfile}>About</MenuItem>}
       {currentUser && <MenuItem onClick={handleNew}>New</MenuItem>}
       {currentUser && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
     </Menu>
