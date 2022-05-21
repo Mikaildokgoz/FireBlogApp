@@ -12,6 +12,7 @@ const firebaseConfig = {
   appId: "1:67991411370:web:3ec2147122033ba56e8ed3"
 };
 
+
 // const firebaseConfig = {
 //   apiKey: "AIzaSyCWuUCHCTgpQeDk17NpPSdjAmEUWePoUG8",
 //   authDomain: "aaaa-d3864.firebaseapp.com",
