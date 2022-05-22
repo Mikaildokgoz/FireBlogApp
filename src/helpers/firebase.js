@@ -12,17 +12,6 @@ import { getDatabase } from "firebase/database";
 //   appId: "1:67991411370:web:3ec2147122033ba56e8ed3"
 // };
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCWuUCHCTgpQeDk17NpPSdjAmEUWePoUG8",
-  authDomain: "aaaa-d3864.firebaseapp.com",
-  databaseURL: "https://aaaa-d3864-default-rtdb.firebaseio.com",
-  projectId: "aaaa-d3864",
-  storageBucket: "aaaa-d3864.appspot.com",
-  messagingSenderId: "456567897590",
-  appId: "1:456567897590:web:127feac1281b3d56485bd7"
-};
-
-
 // const firebaseConfig = {
 //   apiKey: "AIzaSyCWuUCHCTgpQeDk17NpPSdjAmEUWePoUG8",
 //   authDomain: "aaaa-d3864.firebaseapp.com",
@@ -32,6 +21,18 @@ const firebaseConfig = {
 //   messagingSenderId: "456567897590",
 //   appId: "1:456567897590:web:127feac1281b3d56485bd7"
 // };
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCIchq2Uewtg3kqCX1GY1q5hyk8KLRKArU",
+  authDomain: "mikers-4b9ce.firebaseapp.com",
+  databaseURL: "https://mikers-4b9ce-default-rtdb.firebaseio.com",
+  projectId: "mikers-4b9ce",
+  storageBucket: "mikers-4b9ce.appspot.com",
+  messagingSenderId: "595509713168",
+  appId: "1:595509713168:web:2ddf53d518c1bd38a66d95"
+};
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

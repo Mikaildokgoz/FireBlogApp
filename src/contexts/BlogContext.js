@@ -18,7 +18,7 @@ export const BlogContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   const AddBlog = (posts) => {
-    const blogRef = ref(db, "blogapp");
+    const blogRef = ref(db, "mikers");
     const newBlogrRef = push(blogRef);
 
     set(newBlogrRef, {
@@ -33,12 +33,12 @@ export const BlogContextProvider = ({ children }) => {
   };
 
   const DeleteBlog = (id) => {  
-    remove(ref(db, "blogapp/" + id));
+    remove(ref(db, "mikers/" + id));
   }
 
   const EditBlog = (posts) => {
     const updates = {};
-    updates["blogapp/" + posts.id] = posts;
+    updates["mikers/" + posts.id] = posts;
     return update(ref(db), updates)
   }
 
@@ -46,7 +46,7 @@ export const BlogContextProvider = ({ children }) => {
     // setLoading(true) 
 
     useEffect(() => {
-      const blogRef = ref(db, "blogapp");
+      const blogRef = ref(db, "mikers");
   
       onValue(blogRef, (snapshot) => {
         const data = snapshot.val();
