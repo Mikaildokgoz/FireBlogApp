@@ -142,7 +142,7 @@ export default function PrimarySearchAppBar() {
             onClick = {handleClick}
             style={{cursor:'pointer'}}
           >
-            Ers-Mike Blog App
+            Mike Blog App
           </Typography>
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
